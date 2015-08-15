@@ -1,5 +1,5 @@
 {
-  "name": "eventStore",
+  "name": "eventstore",
   "version": "0.0.1",
   "main": "src/index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "ges-client": "^0.9.1",
     "invariant": "^2.1.0",
     "extend": "^3.0.0",
-    "yowlWrapper": "git+",
+    "yowlWrapper": "git+https://github.com/reharik/core_yowlWrapper.git"
   },
   "devDependencies": {
     "babel": "^5.5.6",
