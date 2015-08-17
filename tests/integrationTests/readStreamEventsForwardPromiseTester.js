@@ -3,24 +3,19 @@
  */
 
 require('must');
+var eventStore = require('../../src/index');
+var uuid = require('uuid');
+var eventModels = require('eventmodels');
 
 
 describe('readStreamEventsForwardPromiseTester', function() {
-    var bootstrap;
     var mut;
 
     before(function () {
-
-    });
-
-    beforeEach(function () {
-        bootstrap = require('../intTestBootstrap');
-        mut = bootstrap.getInstanceOf('readStreamEventsForwardPromise');
-        var uuid = bootstrap.getInstanceOf('uuid');
-        var EventData = bootstrap.getInstanceOf('EventData');
-        var append = bootstrap.getInstanceOf('appendToStreamPromise');
+        mut = eventStore.readStreamEventsForwardPromise;
+        var append = eventStore.appendToStreamPromise;
         var appendData = { expectedVersion: -2 };
-        appendData.events = [new EventData('testing1', {}, appendData)];
+        appendData.events = [new eventModels.EventData('testing1', {}, appendData)];
         append('readStream',appendData);
     });
 

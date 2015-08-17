@@ -3,19 +3,15 @@
  */
 
 require('must');
-
+var eventStore = require('../../src/index');
 
 describe('appendToStreamPromiseTester', function() {
-    var bootstrap;
     var mut;
     var EventData;
     var uuid;
 
     before(function(){
-        bootstrap = require('../intTestBootstrap');
-        EventData = bootstrap.getInstanceOf('EventData');
-        uuid = bootstrap.getInstanceOf('uuid');
-        mut = bootstrap.getInstanceOf('appendToStreamPromise');
+        mut = eventStore.appendToStreamPromise
     });
 
     beforeEach(function(){

@@ -3,14 +3,21 @@
  */
 
 require('must');
+var gesConnection = require('../../src/gesConnection');
+var gesClient = require('ges-client');
+var logger = require('yowlWrapper')();
 
 describe('gesConnection', function() {
-    var gesConnection;
-    var bootstrap;
     var mut;
-
+    var options = {
+        "eventstore": {
+            "host": "eventstore",
+            "systemUsers": {"admin": "admin"},
+            "adminPassword": "changeit"
+        }
+    };
     before(function(){
-        bootstrap = require('../intTestBootstrap');
+        mut = gesConnection(gesClient, logger, options);
     });
 
     beforeEach(function(){
@@ -18,7 +25,6 @@ describe('gesConnection', function() {
 
     context('passing proper args', ()=> {
         it('should should return a connection', function () {
-            mut = bootstrap.getInstanceOf('gesConnection');
             mut.must.not.be.null();
             mut._handler._connectingPhase.must.equal('Connected');
         })

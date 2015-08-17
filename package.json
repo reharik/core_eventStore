@@ -7,7 +7,7 @@
     "test": "mocha --opts tests/mocha.opts tests/unitTests",
     "testSpecific": "mocha --opts tests/mocha.opts ",
     "testDebug": "node-debug _mocha --timeout 15000 --opts tests/mocha.opts unitTests",
-    "intTest": "mocha --opts integrationTests/mocha.opts --opts tests/mocha.opts",
+    "intTest": "mocha --opts tests/mocha.opts tests/integrationTests",
     "intTestSpecific": "mocha --opts tests/mocha.opts "
   },
   "license": "MIT",

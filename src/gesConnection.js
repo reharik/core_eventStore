@@ -1,8 +1,7 @@
 
-var gesclient = require('ges-client');
 var extend = require('extend');
 
-module.exports = function(logger, _options) {
+module.exports = function(gesclient, logger, _options) {
     var options = {
         eventstore: {host: 'eventstore'}
     };

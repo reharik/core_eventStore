@@ -23,8 +23,13 @@ module.exports = function index(_options) {
     };
     extend(options, _options || {});
 
+    //lame?
+    var gesclient = options.unitTest
+    ? require('/gesClientMock')
+    : require('ges-client');
+
     var logger = yowlWrapper(options.logger);
-    var gesConnection = _gesConnection(logger, options.eventstore);
+    var gesConnection = _gesConnection(gesclient, logger, options.eventstore);
     var appendToStreamPromise = _appendToStreamPromise(gesConnection,logger);
     var readStreamEventsForwardPromise = _readStreamEventsForwardPromise(gesConnection, logger);
     return {
