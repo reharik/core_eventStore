@@ -35,6 +35,7 @@ module.exports = function index(_options) {
     return {
         appendToStreamPromise:appendToStreamPromise,
         readStreamEventsForwardPromise:readStreamEventsForwardPromise,
-        subscribeToAll:gesConnection.subscribeToAll
+        subscribeToAll:gesConnection.subscribeToAll,
+        gesConnection:gesConnection
     }
 };
