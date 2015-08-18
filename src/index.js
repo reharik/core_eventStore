@@ -25,7 +25,7 @@ module.exports = function index(_options) {
 
     //lame?
     var gesclient = options.unitTest
-    ? require('/gesClientMock')
+    ? require('./gesClientMock')
     : require('ges-client');
 
     var logger = yowlWrapper(options.logger);
