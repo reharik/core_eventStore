@@ -7,7 +7,7 @@ var extend = require('extend');
 var _appendToStreamPromise = require('./appendToStreamPromise');
 var _readStreamEventsForwardPromise = require('./readStreamEventsForwardPromise');
 var _gesConnection = require('./gesConnection');
-var yowlWrapper = require('yowlWrapper');
+var yowlWrapper = require('yowlwrapper');
 
 module.exports = function index(_options) {
 
