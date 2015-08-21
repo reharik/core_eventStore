@@ -35,7 +35,9 @@ module.exports = function gesClientMock(opts) {
 
     var subscribeToAllFrom = function () {
         console.log('mock stream subscription');
-        subscription = new SubscriptionMock();
+        if (!subscription) {
+            subscription = new SubscriptionMock();
+        }
         return subscription;
     };
 
@@ -49,16 +51,15 @@ module.exports = function gesClientMock(opts) {
     var appendToStream = function (streamName, data, cb) {
         console.log('mock append');
         if (!subscription) {
-            subscription = subscribeToStream()
+            subscription = new SubscriptionMock();
         }
-        var results = {streamName: streamName, data: data};
-        subscription.emit(streamName, results);
+        subscription.emit('event', data);
 
         if (_appendToStreamShouldFail) {
-            cb(results);
+            cb(data);
         }
         else {
-            cb(null, results);
+            cb(null, data);
         }
     };
 
