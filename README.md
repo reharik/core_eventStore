@@ -1,0 +1,2 @@
+#core_eventStore
+Your plugin description
