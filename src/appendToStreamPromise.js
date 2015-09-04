@@ -2,12 +2,7 @@
  * Created by rharik on 6/12/15.
  */
 
-var invariant = require('invariant');
-var Promise = require('bluebird');
-
-module.exports = function appendToStreamPromise(_gesConnection, _logger) {
-    var logger = _logger;
-    var gesConnection = _gesConnection;
+module.exports = function appendToStreamPromise(gesConnection, logger, invariant, Promise) {
     return function (streamName, data) {
         invariant(
             streamName,
@@ -18,7 +13,7 @@ module.exports = function appendToStreamPromise(_gesConnection, _logger) {
             'must pass data with an expected version of aggregate'
         );
         invariant(
-            data.events&& data.events.length > 0,
+            data.events && data.events.length > 0,
             'must pass data with at least one event'
         );
         logger.trace('wrapping appendToStream in Promise');

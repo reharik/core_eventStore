@@ -4,7 +4,7 @@
   "private": false,
   "description": "core_eventStore",
   "homepage": "https://github.com/reharik/core_eventStore#readme",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": ""
   },
@@ -15,18 +15,17 @@
     "type": "git",
     "url": "git+https://github.com/reharik/core_eventStore.git"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "Raif Harik",
   "license": "MIT",
   "dependencies": {
     "JSON": "^1.0.0",
     "bluebird": "^2.9.27",
+    "dagon": "0.0.14",
     "extend": "^3.0.0",
     "ges-client": "^0.9.1",
     "invariant": "^2.1.0",
-    "extend": "^3.0.0",
-    "yowlwrapper": "git+https://github.com/reharik/core_yowlWrapper.git"
+    "corelogger": "git+https://github.com/reharik/core_logger.git"
   },
   "devDependencies": {
     "babel": "^5.5.6",
