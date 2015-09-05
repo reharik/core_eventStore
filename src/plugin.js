@@ -3,15 +3,15 @@
  */
 
 
-module.exports = function(extend, appendToStreamPromise, readStreamEventsForwardPromise, gesConnection) {
-    return function plugin(_options) {
-        var options = extend({}, _options || {});
+module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise, gesConnection, extend ) {
+    //return function plugin(_options) {
+    //    var options = extend({}, _options || {});
 
-        return {
-            appendToStreamPromise         : appendToStreamPromise,
-            readStreamEventsForwardPromise: readStreamEventsForwardPromise,
-            subscribeToAll                : gesConnection.subscribeToAll,
-            gesConnection                 : gesConnection
-        }
-    }
+    return {
+        appendToStreamPromise         : appendToStreamPromise,
+        readStreamEventsForwardPromise: readStreamEventsForwardPromise,
+        subscribeToAll                : gesConnection.subscribeToAll,
+        gesConnection                 : gesConnection
+    };
+    //}
 };
