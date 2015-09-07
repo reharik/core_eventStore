@@ -10,8 +10,7 @@ module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise,
     return {
         appendToStreamPromise         : appendToStreamPromise,
         readStreamEventsForwardPromise: readStreamEventsForwardPromise,
-        subscribeToAll                : gesConnection.subscribeToAll,
-        gesConnection                 : gesConnection
+        subscribeToAll                : gesConnection.subscribeToAllFrom
     };
     //}
 };
