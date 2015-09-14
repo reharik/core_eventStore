@@ -3,7 +3,7 @@
  */
 
 
-module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise, gesConnection, extend ) {
+module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise, gesConnection, gesClient, extend ) {
     //return function plugin(_options) {
     //    var options = extend({}, _options || {});
 
@@ -11,7 +11,12 @@ module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise,
         appendToStreamPromise         : appendToStreamPromise,
         readStreamEventsForwardPromise: readStreamEventsForwardPromise,
         subscribeToAllFrom            : gesConnection.subscribeToAllFrom,
-        setStreamMetadata             : ges.setStreamMetadata
+        gesClientHelpers              : {
+            setStreamMetadata   : gesClient.setStreamMetadata
+            createStreamMetadata: gesclient.createStreamMetadata,
+            systemRoles         : gesclient.systemRoles,
+            systemUsers         : gesclient.systemUsers
+        }
     };
     //}
 };
