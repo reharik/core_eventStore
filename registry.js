@@ -6,6 +6,8 @@ var dagon = require('dagon');
 module.exports = function(_options) {
     var options = _options || {};
     var container = dagon(options.dagon);
+    console.log('eventstore registry')
+    console.log(options)
     return new container(x=>
         x.pathToRoot(__dirname)
             .requireDirectoryRecursively('./src')

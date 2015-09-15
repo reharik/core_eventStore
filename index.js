@@ -16,6 +16,9 @@ module.exports = function(_options) {
         }
     };
     extend(options, _options || {});
+    console.log('eventstore index')
+    console.log(options)
+
     var container = require('./registry')(options);
     var plugin = container.getInstanceOf('plugin');
 
