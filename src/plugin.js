@@ -3,7 +3,7 @@
  */
 
 
-module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise, gesConnection, gesClient, extend ) {
+module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise, gesConnection, gesclient, extend ) {
     //return function plugin(_options) {
     //    var options = extend({}, _options || {});
 
@@ -12,7 +12,7 @@ module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise,
         readStreamEventsForwardPromise: readStreamEventsForwardPromise,
         subscribeToAllFrom            : gesConnection.subscribeToAllFrom,
         gesClientHelpers              : {
-            setStreamMetadata   : gesClient.setStreamMetadata,
+            setStreamMetadata   : gesclient.setStreamMetadata,
             createStreamMetadata: gesclient.createStreamMetadata,
             systemRoles         : gesclient.systemRoles,
             systemUsers         : gesclient.systemUsers
