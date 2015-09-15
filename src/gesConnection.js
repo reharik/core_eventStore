@@ -2,7 +2,9 @@
 
 module.exports = function(gesclient, logger, extend) {
     return function(_options) {
-        var options = extend({}, _options, {});
+        var options={};
+        extend(options, _options, {});
+        console.log(options);
         var connection;
         logger.trace('accessing gesConnection');
         if (!connection) {
