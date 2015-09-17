@@ -16,7 +16,9 @@ console.log(gesConnection);
             createStreamMetadata: gesclient.createStreamMetadata,
             systemRoles         : gesclient.systemRoles,
             systemUsers         : gesclient.systemUsers
-        }
+        },
+        //this is for debug purposes only please remove
+        gesConnection:gesConnection
     };
     //}
 };
