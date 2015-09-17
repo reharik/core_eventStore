@@ -23,7 +23,7 @@
     "bluebird": "^2.9.27",
     "dagon": "git+https://github.com/reharik/dagon.git#functional",
     "extend": "^3.0.0",
-    "ges-client": "git+https://github.com/bmavity/ges-client.git#v0.1.0",
+    "ges-client": "0.9.1",
     "invariant": "^2.1.0",
     "corelogger": "git+https://github.com/reharik/core_logger.git"
   },
