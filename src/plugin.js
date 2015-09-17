@@ -12,7 +12,7 @@ module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise,
         readStreamEventsForwardPromise: readStreamEventsForwardPromise,
         subscribeToAllFrom            : gesConnection.subscribeToAllFrom,
         gesClientHelpers              : {
-            setStreamMetadata   : gesclient.setStreamMetadata,
+            setStreamMetadata   : gesConnection.setStreamMetadata,
             createStreamMetadata: gesclient.createStreamMetadata,
             systemRoles         : gesclient.systemRoles,
             systemUsers         : gesclient.systemUsers
