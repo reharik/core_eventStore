@@ -4,8 +4,6 @@ module.exports = function(gesclient, logger, extend) {
     return function(_options) {
         var options={};
         extend(options, _options, {});
-        console.log('eventstore gesconn')
-        console.log(options)
 
         var connection;
         logger.trace('accessing gesConnection');
