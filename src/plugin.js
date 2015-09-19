@@ -10,9 +10,9 @@ console.log(gesConnection);
     return {
         appendToStreamPromise         : appendToStreamPromise,
         readStreamEventsForwardPromise: readStreamEventsForwardPromise,
-        subscribeToAllFrom            : gesConnection.subscribeToAllFrom,
+        subscribeToAllFrom            : gesConnection.subscribeToAllFrom.bind(gesConnection),
         gesClientHelpers              : {
-            setStreamMetadata   : gesConnection.setStreamMetadata,
+            setStreamMetadata   : gesConnection.setStreamMetadata.bind(gesConnection),
             createStreamMetadata: gesclient.createStreamMetadata,
             systemRoles         : gesclient.systemRoles,
             systemUsers         : gesclient.systemUsers
