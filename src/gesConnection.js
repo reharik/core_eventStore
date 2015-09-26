@@ -9,9 +9,9 @@ module.exports = function(gesclient, logger, extend) {
         logger.trace('accessing gesConnection');
         if (!connection) {
             logger.debug('creating gesConnection');
-            logger.trace('IP:' + options.eventstore.host + ':1113');
+            logger.trace('IP:' + options.host + ':1113');
             connection = gesclient({
-                host: options.eventstore.host,
+                host: options.host,
                 port: 1113
             })
         }

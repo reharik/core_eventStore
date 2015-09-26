@@ -3,7 +3,7 @@
  */
 
 require('must');
-var eventStore = require('../../src/index');
+var eventStore = require('../../index');
 
 describe('appendToStreamPromiseTester', function() {
     var mut;

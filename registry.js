@@ -5,12 +5,12 @@ var dagon = require('dagon');
 
 module.exports = function(_options) {
     var options = _options || {};
-    var container = dagon(options.dagon);
+    var container = dagon(options.dagon||{});
     return new container(x=>
         x.pathToRoot(__dirname)
             .requireDirectoryRecursively('./src')
             .for('bluebird').renameTo('Promise')
             .for('corelogger').renameTo('logger').instantiate(i=>i.asFunc().withParameters(options.logger || {}))
-            .for('gesConnection').instantiate(i=>i.asFunc().withParameters(options || {}))
+            .for('gesConnection').instantiate(i=>i.asFunc().withParameters(options.eventstore || {}))
             .complete());
 };

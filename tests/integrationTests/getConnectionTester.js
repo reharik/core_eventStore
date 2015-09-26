@@ -5,41 +5,85 @@
 require('must');
 var gesConnection = require('../../src/gesConnection');
 var gesClient = require('ges-client');
-var logger = require('yowlWrapper')();
+var logger = require('corelogger')();
+var container ;
+var setData;
+var auth;
 
 describe('gesConnection', function() {
     var mut;
-    var options = {
-        "eventstore": {
-            "host": "172.17.4.194",
-            "systemUsers": {"admin": "admin"},
-            "adminPassword": "changeit"
-        }
-    };
     before(function(){
-        mut = gesConnection(gesClient, logger, options);
-    });
+        var options = {
+            //"dagon":{"logger":{"level":"silly"}},
+            "eventstore": {
+                "host": "172.17.4.202",
+                "systemUsers": {"admin": "admin"},
+                "adminPassword": "changeit"
+            }
+        };
+        container = require('../../registry')(options);
+        auth = {
+            username: gesClient.systemUsers.admin
+            , password: gesClient.systemUsers.defaultAdminPassword
+        };
+        setData = {
+            expectedMetastreamVersion: -1
+            , metadata: gesClient.createStreamMetadata({
+                acl: {
+                    readRoles: gesClient.systemRoles.all
+                }
+            })
+            , auth: auth
+        };
+
+
+
+
+        });
 
     beforeEach(function(){
     });
-
-    context('passing proper args', ()=> {
-        it('should should return a connection', function () {
-            mut.must.not.be.null();
-            mut._handler._connectingPhase.must.equal('Connected');
-        })
-    });
-
-    //context('when calling subscription', ()=> {
-    //    it('should stay open', function async (done) {
-    //        mut = bootstrap.getInstanceOf('gesConnection')();
-    //        var rx = bootstrap.getInstanceOf('rx');
-    //        var subscription = mut.subscribeToAllFrom();
     //
-    //        rx.Observable.fromEvent(subscription, 'event').take(10).forEach(x=> {console.log(x);}, err=>{throw err}, ()=>done());
-    //
+    //context('passing proper args', ()=> {
+    //    it('should should return a connection', function () {
+    //        mut.must.not.be.null();
     //        mut._handler._connectingPhase.must.equal('Connected');
     //    })
     //});
+
+    context('when calling subscription', ()=> {
+        it('should stay open', function async (done) {
+            mut = container.getInstanceOf('gesConnection');
+            var rx = container.getInstanceOf('rx');
+            setTimeout(function(){
+                var hasMetaData;
+                auth = {
+                    username: gesClient.systemUsers.admin
+                    , password: gesClient.systemUsers.defaultAdminPassword
+                };
+                setData = {
+                    expectedMetastreamVersion: -1
+                    , metadata: gesClient.createStreamMetadata({
+                        acl: {
+                            readRoles: gesClient.systemRoles.all
+                        }
+                    })
+                    , auth: auth
+                };
+                mut.getStreamMetadata('$all', {auth:auth}, function(err,data){
+                    if(!err && data){
+                        hasMetaData = true;
+                    }
+                });
+                if(!hasMetaData) {
+                    mut.setStreamMetadata('$all', setData, function(){console.log('HHHHEEERRRREEEE')});
+                }
+            var subscription = mut.subscribeToAllFrom();
+            rx.Observable.fromEvent(subscription, 'event').take(10).forEach(x=> {console.log(x);}, err=>{throw err}, ()=>done());
+            },2000)
+
+            //mut._handler._connectingPhase.must.equal('Connected');
+        })
+    });
 });
 

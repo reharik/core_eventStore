@@ -3,8 +3,7 @@
  */
 
 require('must');
-var eventStore = require('../../src/index');
-var uuid = require('uuid');
+var eventStore = require('../../index');
 var eventModels = require('eventmodels');
 
 
