@@ -11,7 +11,7 @@ describe('gesConnection', function() {
     var mut;
     var options = {
         "eventstore": {
-            "host": "eventstore",
+            "host": "172.17.4.194",
             "systemUsers": {"admin": "admin"},
             "adminPassword": "changeit"
         }
