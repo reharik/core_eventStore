@@ -16,7 +16,7 @@ describe('gesConnection', function() {
         var options = {
             //"dagon":{"logger":{"level":"silly"}},
             "eventstore": {
-                "host": "172.17.4.202",
+                "host": "172.17.5.3",
                 "systemUsers": {"admin": "admin"},
                 "adminPassword": "changeit"
             }
@@ -55,8 +55,6 @@ describe('gesConnection', function() {
         it('should stay open', function async (done) {
             mut = container.getInstanceOf('gesConnection');
             var rx = container.getInstanceOf('rx');
-            setTimeout(function(){
-                var hasMetaData;
                 auth = {
                     username: gesClient.systemUsers.admin
                     , password: gesClient.systemUsers.defaultAdminPassword
@@ -70,17 +68,19 @@ describe('gesConnection', function() {
                     })
                     , auth: auth
                 };
-                mut.getStreamMetadata('$all', {auth:auth}, function(err,data){
-                    if(!err && data){
-                        hasMetaData = true;
+                mut.getStreamMetadata('$all', {auth:auth}, function(err,data) {
+                    console.log('err')
+                    console.log(err)
+                    console.log('data')
+                    console.log(data)
+                    if (err || !data) {
+                        mut.setStreamMetadata('$all', setData, function () {
+                            console.log('HHHHEEERRRREEEE')
+                        });
                     }
                 });
-                if(!hasMetaData) {
-                    mut.setStreamMetadata('$all', setData, function(){console.log('HHHHEEERRRREEEE')});
-                }
             var subscription = mut.subscribeToAllFrom();
-            rx.Observable.fromEvent(subscription, 'event').take(10).forEach(x=> {console.log(x);}, err=>{throw err}, ()=>done());
-            },2000)
+            rx.Observable.fromEvent(subscription, 'event').take(1).forEach(x=> {console.log(x);}, err=>{throw err}, ()=>done());
 
             //mut._handler._connectingPhase.must.equal('Connected');
         })

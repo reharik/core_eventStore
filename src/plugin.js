@@ -9,7 +9,7 @@ module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise,
     return {
         appendToStreamPromise         : appendToStreamPromise,
         readStreamEventsForwardPromise: readStreamEventsForwardPromise,
-        subscribeToAllFrom            : gesConnection.subscribeToStream.bind(gesConnection),
+        subscribeToAllFrom            : gesConnection.subscribeToAllFrom.bind(gesConnection),
         gesClientHelpers              : {
             getStreamMetadata   : gesConnection.getStreamMetadata.bind(gesConnection),
             setStreamMetadata   : gesConnection.setStreamMetadata.bind(gesConnection),
