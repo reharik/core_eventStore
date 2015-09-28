@@ -5,18 +5,18 @@
 var extend = require('extend');
 
 module.exports = function(_options) {
-    var options = {
-        "eventstore": {
-            "host"         : "eventstore",
-            "systemUsers"  : {"admin": "admin"},
-            "adminPassword": "changeit"
-        },
-        logger      : {
-            moduleName: "EventStore"
-        }
-    };
+    var options = {};
+    //    "eventstore": {
+    //        "host"         : "eventstore",
+    //        "systemUsers"  : {"admin": "admin"},
+    //        "adminPassword": "changeit"
+    //    },
+    //    logger      : {
+    //        moduleName: "EventStore"
+    //    }
+    //};
     extend(options, _options || {});
-
+console.log(options)
     var container = require('./registry')(options);
     var plugin = container.getInstanceOf('plugin');
 

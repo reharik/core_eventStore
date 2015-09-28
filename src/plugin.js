@@ -6,7 +6,6 @@
 module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise, gesConnection, gesclient, extend ) {
     //return function plugin(_options) {
     //    var options = extend({}, _options || {});
-console.log(gesConnection);
     return {
         appendToStreamPromise         : appendToStreamPromise,
         readStreamEventsForwardPromise: readStreamEventsForwardPromise,
