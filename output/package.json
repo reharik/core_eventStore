@@ -7,7 +7,7 @@
   "main": "output/app/index.js",
   "scripts": {
     "test": "mocha --require ./app/tests/babelhook --opts ./app/tests/mocha.opts ./app/tests/unitTests/*.js",
-    "intTest": "mocha --require ./app/babelhook --opts ./app/tests/mocha.opts ./app/tests/integrationTests/*.js"
+    "intTest": "mocha --require ./output/app/tests/babelhook --opts ./output/app/tests/mocha.opts ./output/app/tests/integrationTests/*.js"
   },
   "bugs": {
     "url": "https://github.com/reharik/core_eventStore/issues"
@@ -22,7 +22,7 @@
   "dependencies": {
     "JSON": "^1.0.0",
     "bluebird": "^2.9.27",
-    "dagon": "git+https://github.com/reharik/dagon.git",
+    "dagon": "0.2.1",
     "extend": "^3.0.0",
     "rx": "^2.5.3",
     "ges-client": "0.10.0",

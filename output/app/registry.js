@@ -1,0 +1,18 @@
+/**
+ * Created by parallels on 9/3/15.
+ */
+'use strict';
+
+var dagon = require('dagon');
+
+module.exports = function (_options) {
+    var options = _options || {};
+    var container = dagon(options.dagon || {});
+    return new container(function (x) {
+        return x.pathToRoot(path.join(__dirname, '..')).requireDirectoryRecursively('./app/src')['for']('bluebird').renameTo('Promise')['for']('corelogger').renameTo('logger').instantiate(function (i) {
+            return i.asFunc().withParameters(options.logger || {});
+        })['for']('gesConnection').instantiate(function (i) {
+            return i.asFunc().withParameters(options.eventstore || {});
+        }).complete();
+    });
+};

@@ -1,7 +1,7 @@
 plugin:
  build: .
  volumes:
-  - .:/home/app/current
+  - ../output:/home/app/current
  command: npm test 
  ports: 
   - "2113:2113" 
