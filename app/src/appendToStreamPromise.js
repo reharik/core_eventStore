@@ -1,7 +1,7 @@
 /**
  * Created by rharik on 6/12/15.
  */
-
+"use strict";
 
 module.exports = function appendToStreamPromise(gesConnection, logger, invariant, Promise) {
     return function (streamName, data) {

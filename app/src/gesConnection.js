@@ -1,4 +1,5 @@
 
+"use strict";
 
 module.exports = function(gesclient, logger, extend) {
     return function(_options) {

@@ -1,6 +1,7 @@
 /**
  * Created by reharik on 6/10/15.
  */
+"use strict";
 
 module.exports = function(gesConnection, logger, invariant, Promise) {
     return function (streamName, skipTake) {
