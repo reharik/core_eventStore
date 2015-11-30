@@ -27,8 +27,7 @@
     "rx": "^2.5.3",
     "ges-client": "0.10.0",
     "invariant": "^2.1.0",
-    "corelogger": "git+https://github.com/reharik/core_logger.git",
-    "eventmodels": "git+https://github.com/reharik/core_eventmodels.git"
+    "corelogger": "git+https://github.com/reharik/core_logger.git"
   },
   "devDependencies": {
     "babel": "^5.8.23",
