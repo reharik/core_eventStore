@@ -3,8 +3,8 @@
  */
 "use strict";
 
-module.exports = function appendToStreamPromise(gesConnection, logger, invariant, Promise) {
-    return function (streamName, data) {
+module.exports = function appendToStreamPromise(gesConnection, logger, invariant, Promise, R) {
+    return R.curry(function (streamName, data) {
         invariant(
             streamName,
             'must pass a valid stream name'
@@ -30,6 +30,6 @@ module.exports = function appendToStreamPromise(gesConnection, logger, invariant
                 }
             });
         });
-    };
+    });
 };
 

@@ -9,7 +9,7 @@ module.exports = function(gesclient, logger, extend) {
         var connection;
         logger.trace('accessing gesConnection');
         if (!connection) {
-            logger.debug('creating gesConnection');
+            logger.debug('creatextending gesConnection');
             logger.trace('IP:' + options.host + ':1113');
             connection = gesclient({
                 host: options.host,

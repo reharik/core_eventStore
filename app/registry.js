@@ -15,5 +15,6 @@ module.exports = function(_options) {
             .for('bluebird').renameTo('Promise')
             .for('corelogger').renameTo('logger').instantiate(i=>i.asFunc().withParameters(options.logger || {}))
             .for('gesConnection').instantiate(i=>i.asFunc().withParameters(options.eventstore || {}))
-            .complete());
+            .for('ramda').renameTo('R')
+        .complete());
 };

@@ -27,6 +27,7 @@
     "rx": "^2.5.3",
     "ges-client": "0.10.0",
     "invariant": "^2.1.0",
+    "ramda": "^0.18.0",
     "corelogger": "git://github.com/reharik/core_logger.git"
   },
   "devDependencies": {
