@@ -22,7 +22,7 @@
   "dependencies": {
     "JSON": "^1.0.0",
     "bluebird": "^2.9.27",
-    "dagon": "git://github.com/reharik/dagon.git#local",
+    "dagon": "git://github.com/reharik/dagon.git#newVersion",
     "extend": "^3.0.0",
     "rx": "^2.5.3",
     "ges-client": "0.10.0",
