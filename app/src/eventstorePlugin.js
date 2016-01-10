@@ -5,22 +5,19 @@
 
 module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise, gesConnection, gesclient, extend ) {
     return function eventstore(_options) {
-        _options = _options && _options.eventstore ? _options.eventstore : {};
-        var options = extend({}, _options || {});
-        var ges = gesConnection(options);
         return {
             appendToStreamPromise         : appendToStreamPromise,
             readStreamEventsForwardPromise: readStreamEventsForwardPromise,
-            subscribeToAllFrom            : ges.subscribeToAllFrom.bind(ges),
+            subscribeToAllFrom            : gesConnection.subscribeToAllFrom.bind(gesConnection),
             gesClientHelpers              : {
-                getStreamMetadata   : ges.getStreamMetadata.bind(ges),
-                setStreamMetadata   : ges.setStreamMetadata.bind(ges),
+                getStreamMetadata   : gesConnection.getStreamMetadata.bind(gesConnection),
+                setStreamMetadata   : gesConnection.setStreamMetadata.bind(gesConnection),
                 createStreamMetadata: gesclient.createStreamMetadata,
                 systemRoles         : gesclient.systemRoles,
                 systemUsers         : gesclient.systemUsers
             },
             //this is for debug purposes only please remove
-            gesConnection                 : ges
+            gesConnection                 : gesConnection
         };
     }
 };
