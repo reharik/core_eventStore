@@ -16,7 +16,7 @@ module.exports = function(_options) {
     //        moduleName: "EventStore"
     //    }
     //};
-    extend(options, _options || {});
+    options = extend(options, _options || {});
     return  require('./registry')(options);
     //var plugin = container.getInstanceOf('plugin');
     //
