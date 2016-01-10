@@ -5,6 +5,7 @@
 
 module.exports = function(appendToStreamPromise, readStreamEventsForwardPromise, gesConnection, gesclient, extend ) {
     return function eventstore(_options) {
+        _options = _options && _options.eventstore ? _options.eventstore : {};
         var options = extend({}, _options || {});
         var ges = gesConnection(options);
         return {
