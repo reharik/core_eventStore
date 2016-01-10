@@ -14,7 +14,7 @@ module.exports = function(gesclient, logger, extend) {
                 port: 1113
             })
         }
-        logger.debug('gesConnection: ' + JSON.stringify(connection));
+        logger.debug('gesConnection: ' + JSON.stringify(connection, null, 4));
         return connection;
     };
 };
