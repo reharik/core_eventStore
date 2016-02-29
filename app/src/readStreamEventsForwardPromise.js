@@ -3,7 +3,7 @@
  */
 "use strict";
 
-module.exports = function(gesConnection, logger, invariant, Promise) {
+module.exports = function(gesConnection, logger, invariant, Promise, JSON) {
     return function (streamName, skipTake) {
         invariant(
             streamName,
@@ -22,7 +22,7 @@ module.exports = function(gesConnection, logger, invariant, Promise) {
                     logger.error('rejecting readStreamEventsForward Promise with error message: ' + err);
                     reject(err);
                 } else {
-                    logger.debug('resolving readStreamEventsForward Promise with response: ' + results);
+                    logger.debug('resolving readStreamEventsForward Promise with response: ' + JSON.stringify(results));
                     resolve(results);
                 }
             });

@@ -3,7 +3,7 @@
  */
 "use strict";
 
-module.exports = function appendToStreamPromise(gesConnection, logger, invariant, Promise, R) {
+module.exports = function appendToStreamPromise(gesConnection, logger, invariant, Promise, R, JSON) {
     return R.curry(function (streamName, data) {
         invariant(
             streamName,
@@ -25,7 +25,7 @@ module.exports = function appendToStreamPromise(gesConnection, logger, invariant
                     logger.debug('rejecting appendToStream Promise with error message: ' + err);
                     reject(err);
                 } else {
-                    logger.debug('resolving appendToStream Promise with response: ' + result);
+                    logger.debug('resolving appendToStream Promise with response: ' + JSON.stringify(result));
                     resolve(result);
                 }
             });
